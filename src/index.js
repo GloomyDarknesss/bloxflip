@@ -6,7 +6,7 @@
 // @author       gabdarkness
 // @match        https://bloxflip.com/*
 // @license      MIT
-// @updateURL    https://123.com.br/path/to/script.js
+// @updateURL    https://raw.githubusercontent.com/GloomyDarknesss/bloxflip/main/src/index.js
 // @grant        GM_registerMenuCommand
 // @grant        GM_setValue
 // @grant        GM_getValue
