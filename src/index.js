@@ -1,7 +1,7 @@
     // ==UserScript==
     // @name         Bloxflip Rain Autojoin
     // @namespace    http://tampermonkey.net/
-    // @version      2.1
+    // @version      2.3
     // @description  This script can join in rains automatic
     // @author       gabdarkness
     // @match        https://bloxflip.com/*
