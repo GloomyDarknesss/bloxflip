@@ -20,16 +20,19 @@
     function checkButton() {
         let button = d.evaluate(buttonPath, d, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (button) {
+            console.log('Button found');  
             if (!buttonTimeout) {
                 buttonTimeout = setTimeout(function() {
                     button = d.evaluate(buttonPath, d, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
                     if (button) {
                         button.click();
+                        console.log('Button clicked');  
                     }
                     buttonTimeout = null;
                 }, 3 * 60 * 1000);
             }
         } else {
+            console.log('Button not found');  
             if (buttonTimeout) {
                 clearTimeout(buttonTimeout);
                 buttonTimeout = null;
