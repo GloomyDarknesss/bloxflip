@@ -1,15 +1,13 @@
     // ==UserScript==
     // @name         Bloxflip Rain Autojoin
     // @namespace    http://tampermonkey.net/
-    // @version      2.3
+    // @version      2.5
     // @description  This script can join in rains automatic
     // @author       gabdarkness
     // @match        https://bloxflip.com/*
     // @license      MIT
+    // @downloadURL   https://raw.githubusercontent.com/GloomyDarknesss/bloxflip/main/src/index.js
     // @updateURL    https://raw.githubusercontent.com/GloomyDarknesss/bloxflip/main/src/index.js
-    // @grant        GM_registerMenuCommand
-    // @grant        GM_setValue
-    // @grant        GM_getValue
     // ==/UserScript==
 
     let joinPath = '//*[@id="__next"]/div[2]/div/div[3]/aside/div[3]/p[2]';
@@ -18,7 +16,6 @@
     let timeout = 0;
     let lastRain = null;
     let buttonTimeout = null;
-    let discordWebhookUrl = GM_getValue('discordWebhookUrl', '');
 
     function checkButton() {
         let button = d.evaluate(buttonPath, d, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
