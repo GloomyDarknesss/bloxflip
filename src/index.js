@@ -34,6 +34,7 @@
 
             if (element) {
                 element.click();
+                console.log('⛈️');  // Log the rain emoji when entering a rain
             }
             timeout = 5;
 
