@@ -1,7 +1,7 @@
     // ==UserScript==
     // @name         Bloxflip Rain Autojoin
     // @namespace    http://tampermonkey.net/
-    // @version      2.5
+    // @version      2.6
     // @description  This script can join in rains automatic
     // @author       gabdarkness
     // @match        https://bloxflip.com/*
@@ -11,34 +11,9 @@
     // ==/UserScript==
 
     let joinPath = '//*[@id="__next"]/div[2]/div/div[3]/aside/div[3]/p[2]';
-    let buttonPath = '/html/body/div[34]/div/div/button';
     let d = document;
     let timeout = 0;
     let lastRain = null;
-    let buttonTimeout = null;
-
-    function checkButton() {
-        let button = d.evaluate(buttonPath, d, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        if (button) {
-            console.log('Button found');  
-            if (!buttonTimeout) {
-                buttonTimeout = setTimeout(function() {
-                    button = d.evaluate(buttonPath, d, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                    if (button) {
-                        button.click();
-                        console.log('Button clicked');  
-                    }
-                    buttonTimeout = null;
-                }, 3 * 60 * 1000);
-            }
-        } else {
-            console.log('Button not found');  
-            if (buttonTimeout) {
-                clearTimeout(buttonTimeout);
-                buttonTimeout = null;
-            }
-        }
-    }
 
     setInterval(async function() {
         if (timeout > 0) {
@@ -64,6 +39,8 @@
 
             lastRain = historyJson.rain;
         }
-
-        checkButton();
     }, 1000);
+
+    setInterval(function() {
+        location.reload();
+    }, 20 * 60 * 1000);
